@@ -14,7 +14,7 @@ authors = [
     { name = "Guillaume Guardia", email = "guardia.1903@apside-groupe.com" },
 ]
 dependencies = [
-    "alembic==1.20.0",
+    "alembic==1.20.1",
     "colorlog==6.12.0",
     "googlemaps==4.10.0",
     "openpyxl==3.1.5",
