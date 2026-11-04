@@ -47,3 +47,38 @@ jobs:
 
       - name: Run tests
         run: dev.bat test
+
+  release:
+    name: Bump version and create tag
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+
+      - name: Bump patch version
+        id: version
+        run: |
+          version="$(python scripts/bump_version.py)"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Commit version and push tag
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pyproject.toml
+          git commit -m "chore: release v$VERSION"
+          git tag -a "v$VERSION" -m "Release v$VERSION"
+          git push origin HEAD:master "refs/tags/v$VERSION"

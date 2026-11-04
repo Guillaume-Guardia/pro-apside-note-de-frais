@@ -76,6 +76,8 @@ $env:GOOGLE_API_KEY = "votre-cle"
 ```
 
 La CI GitHub Actions utilise Windows et Python 3.14. Elle ne reçoit pas de clé Google par défaut ; seuls les tests sans appel API sont alors exécutés.
+Après chaque push réussi sur `master`, la CI incrémente le numéro de patch dans `pyproject.toml`, commit cette version et crée un tag annoté `vX.Y.Z`.
+Le job de release nécessite l'autorisation d'écriture du contenu par GitHub Actions ; si `master` est protégé, la règle doit également autoriser le push du bot.
 
 ## Configuration et données locales
 
