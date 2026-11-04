@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-          cache-dependency-path: requirements*.txt
+          cache-dependency-path: pyproject.toml
 
       # Same commands as in local, see dev.bat
       - name: Install dependencies

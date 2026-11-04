@@ -1,3 +1,46 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyndf"
+version = "1.2"
+description = "Do NDF for Apside"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICENSE.txt"]
+authors = [
+    { name = "Guillaume Guardia", email = "guardia.1903@apside-groupe.com" },
+]
+dependencies = [
+    "alembic==1.20.0",
+    "colorlog==6.12.0",
+    "googlemaps==4.10.0",
+    "openpyxl==3.1.5",
+    "pandas==3.0.6",
+    "PyMuPDF==1.28.2",
+    "PyQt6==6.11.0",
+    "python-dateutil==2.9.0.post0",
+    "PyYAML==6.0.3",
+    "reportlab==5.0.1",
+    "SQLAlchemy==2.1.1",
+    "xlrd==2.0.2",
+    "XlsxWriter==3.2.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pyndf*"]
+
+[tool.setuptools.package-data]
+pyndf = ["conf/*.yaml", "data/*", "data/icons/*", "data/translations/*"]
