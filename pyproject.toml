@@ -24,7 +24,7 @@ dependencies = [
     "python-dateutil==4.0.0",
     "PyYAML==6.0.3",
     "reportlab==5.1.0",
-    "SQLAlchemy==2.1.6",
+    "SQLAlchemy==2.1.8",
     "xlrd==2.0.2",
     "XlsxWriter==3.3.1",
 ]
