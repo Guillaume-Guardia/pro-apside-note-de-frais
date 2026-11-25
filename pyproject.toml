@@ -22,7 +22,7 @@ dependencies = [
     "PyMuPDF==2.1",
     "PyQt6==6.12.1",
     "python-dateutil==4.0.0",
-    "PyYAML==6.0.3",
+    "PyYAML==6.0.4",
     "reportlab==5.1.0",
     "SQLAlchemy==2.1.9",
     "xlrd==2.0.2",
